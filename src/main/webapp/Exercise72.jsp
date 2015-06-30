@@ -66,7 +66,7 @@
 // print the information about every category of the list
         for(Order order : ordersOK) {
             out.println("<tr>");
-            out.println("<td>" + order.getOrderkey() + "</td>");
+            out.println("<td><a href=\"/exercise74?orderkey="+ order.getOrderkey() + "\"> " + order.getOrderkey() + "</a></td>");
             out.println("<td>" + order.getCustkey() + "</td>");
             out.println("<td>" + order.getOrderstatus() + "</td>");
             out.println("<td>" + new DecimalFormat("###,###.00 €").format(order.getTotalprice()) + "</td>");
@@ -98,7 +98,7 @@
 // print the information about every category of the list
         for(Order order : ordersNO) {
             out.println("<tr>");
-            out.println("<td>" + order.getOrderkey() + "</td>");
+            out.println("<td><a href=\"/exercise74?orderkey="+ order.getOrderkey() + "\"> " + order.getOrderkey() + "</a></td>");
             out.println("<td>" + order.getCustkey() + "</td>");
             out.println("<td>" + order.getOrderstatus() + "</td>");
             out.println("<td>" + new DecimalFormat("###,###.00 €").format(order.getTotalprice()) + "</td>");

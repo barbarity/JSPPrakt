@@ -11,16 +11,16 @@ import java.util.List;
  */
 public interface OrderDAO {
 
-    public Order find(Integer orderkey) throws DAOException;
+    Order find(Integer orderkey) throws DAOException;
 
-    public List<Order> list() throws DAOException;
+    List<Order> list() throws DAOException;
 
-    public List<Order> listByOrderStatus(String orderstatus) throws DAOException;
+    List<Order> listByOrderStatus(String orderstatus) throws DAOException;
 
-    public void create(Order order) throws IllegalArgumentException, DAOException;
+    void create(Order order) throws IllegalArgumentException, DAOException;
 
-    public void update(Order order) throws DAOException;
+    void update(Order order) throws DAOException;
 
-    public void delete(Order order) throws DAOException;
+    void delete(Order order) throws DAOException;
 
 }

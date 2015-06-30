@@ -1,9 +1,13 @@
 package main.java.de.tum.in.dbpra.dao;
 
 import main.java.de.tum.in.dbpra.dao.interfaces.CustomerDAO;
+import main.java.de.tum.in.dbpra.dao.interfaces.LineitemDAO;
 import main.java.de.tum.in.dbpra.dao.interfaces.OrderDAO;
+import main.java.de.tum.in.dbpra.dao.interfaces.PartDAO;
 import main.java.de.tum.in.dbpra.dao.jdbc.CustomerDAOJDBC;
+import main.java.de.tum.in.dbpra.dao.jdbc.LineitemDAOJDBC;
 import main.java.de.tum.in.dbpra.dao.jdbc.OrderDAOJDBC;
+import main.java.de.tum.in.dbpra.dao.jdbc.PartDAOJDBC;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -102,7 +106,19 @@ public abstract class DAOFactory {
         return new OrderDAOJDBC(this);
     }
 
+    /**
+     * Returns the Part DAO associated with the current DAOFactory.
+     * @return The Part DAO associated with the current DAOFactory.
+     */
+    public PartDAO getPartDAO() {
+        return new PartDAOJDBC(this);
+    }
+
     // You can add more DAO implementation getters here.
+
+    public LineitemDAO getLineitemDAO() {
+        return new LineitemDAOJDBC(this);
+    }
 
 }
 

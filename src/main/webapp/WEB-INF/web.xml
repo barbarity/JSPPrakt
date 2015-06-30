@@ -23,5 +23,12 @@
         <servlet-name>Exercise73</servlet-name>
         <url-pattern>/exercise73</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>Exercise74</servlet-name>
+        <servlet-class>main.java.de.tum.in.dbpra.servlets.Exercise74</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Exercise74</servlet-name>
+        <url-pattern>/exercise74</url-pattern>
+    </servlet-mapping>
 </web-app>

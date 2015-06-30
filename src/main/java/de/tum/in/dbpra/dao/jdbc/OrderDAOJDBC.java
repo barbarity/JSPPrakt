@@ -24,7 +24,7 @@ public class OrderDAOJDBC implements OrderDAO {
     private static final String DEFAULT_COLUMNS = "orderkey, custkey, orderstatus, totalprice, orderdate";
 
     private static final String SQL_FIND_BY_ORDERKEY =
-            "SELECT " + DEFAULT_COLUMNS + " FROM " + TABLE_NAME + "WHERE orderkey = ?";
+            "SELECT " + DEFAULT_COLUMNS + " FROM " + TABLE_NAME + " WHERE orderkey = ?";
     private static final String SQL_LIST =
             "SELECT " + DEFAULT_COLUMNS + " FROM " + TABLE_NAME;
     private static final String SQL_LIST_BY_ORDERSTATUS =
@@ -47,7 +47,7 @@ public class OrderDAOJDBC implements OrderDAO {
         try (
                 Connection connection = daoFactory.getConnection();
                 PreparedStatement statement = prepareStatement(connection, sql, false, values);
-                ResultSet resultSet = statement.executeQuery();
+                ResultSet resultSet = statement.executeQuery()
         ) {
             if (resultSet.next()) {
                 order = map(resultSet);
@@ -66,7 +66,7 @@ public class OrderDAOJDBC implements OrderDAO {
         try (
                 Connection connection = daoFactory.getConnection();
                 PreparedStatement statement = connection.prepareStatement(SQL_LIST);
-                ResultSet resultSet = statement.executeQuery();
+                ResultSet resultSet = statement.executeQuery()
         ) {
             while (resultSet.next()) {
                 orders.add(map(resultSet));
@@ -89,7 +89,7 @@ public class OrderDAOJDBC implements OrderDAO {
         try (
                 Connection connection = daoFactory.getConnection();
                 PreparedStatement statement = prepareStatement(connection, sql, false, values);
-                ResultSet resultSet = statement.executeQuery();
+                ResultSet resultSet = statement.executeQuery()
         ){
             while (resultSet.next()) {
                 orders.add(map(resultSet));

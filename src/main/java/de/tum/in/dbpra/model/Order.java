@@ -2,7 +2,9 @@ package main.java.de.tum.in.dbpra.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by barbarity on 11/06/15.
@@ -66,7 +68,7 @@ public class Order implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        return (obj instanceof Customer) && (orderkey != null)
+        return (obj instanceof Order) && (orderkey != null)
                 ? orderkey.equals(((Order) obj).orderkey)
                 : (obj == this);
     }

@@ -23,7 +23,7 @@ public class CustomerDAOJDBC implements CustomerDAO {
     private static final String DEFAULT_COLUMNS = "custkey, name, address, nationkey, phone, fax, acctbal";
 
     private static final String SQL_FIND_BY_CUSTKEY =
-            "SELECT " + DEFAULT_COLUMNS + " FROM " + TABLE_NAME + "WHERE custkey = ?";
+            "SELECT " + DEFAULT_COLUMNS + " FROM " + TABLE_NAME + " WHERE custkey = ?";
     private static final String SQL_LIST =
             "SELECT " + DEFAULT_COLUMNS + " FROM " + TABLE_NAME;
     private static final String SQL_INSERT =
@@ -47,7 +47,7 @@ public class CustomerDAOJDBC implements CustomerDAO {
         try (
                 Connection connection = daoFactory.getConnection();
                 PreparedStatement statement = prepareStatement(connection, sql, false, values);
-                ResultSet resultSet = statement.executeQuery();
+                ResultSet resultSet = statement.executeQuery()
         ) {
             if (resultSet.next()) {
                 customer = map(resultSet);
@@ -65,7 +65,7 @@ public class CustomerDAOJDBC implements CustomerDAO {
         try (
                 Connection connection = daoFactory.getConnection();
                 PreparedStatement statement = connection.prepareStatement(SQL_LIST);
-                ResultSet resultSet = statement.executeQuery();
+                ResultSet resultSet = statement.executeQuery()
         ) {
             while (resultSet.next()) {
                 customers.add(map(resultSet));
@@ -104,7 +104,7 @@ public class CustomerDAOJDBC implements CustomerDAO {
 
         try (
                 Connection connection = daoFactory.getConnection();
-                PreparedStatement statement = prepareStatement(connection, SQL_INSERT, true, values);
+                PreparedStatement statement = prepareStatement(connection, SQL_INSERT, true, values)
         ) {
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
@@ -133,7 +133,7 @@ public class CustomerDAOJDBC implements CustomerDAO {
 
         try (
                 Connection connection = daoFactory.getConnection();
-                PreparedStatement statement = prepareStatement(connection, SQL_UPDATE, false, values);
+                PreparedStatement statement = prepareStatement(connection, SQL_UPDATE, false, values)
         ) {
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {

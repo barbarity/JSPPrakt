@@ -10,14 +10,14 @@ import java.util.List;
  */
 public interface CustomerDAO {
 
-    public Customer find(Integer custkey) throws DAOException;
+    Customer find(Integer custkey) throws DAOException;
 
-    public List<Customer> list() throws DAOException;
+    List<Customer> list() throws DAOException;
 
-    public void create(Customer customer) throws IllegalArgumentException, DAOException;
+    void create(Customer customer) throws IllegalArgumentException, DAOException;
 
-    public void update(Customer customer) throws DAOException;
+    void update(Customer customer) throws DAOException;
 
-    public void delete(Customer customer) throws DAOException;
+    void delete(Customer customer) throws DAOException;
 
 }
